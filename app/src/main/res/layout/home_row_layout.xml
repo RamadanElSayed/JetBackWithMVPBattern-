@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <data>
+        <variable
+            name="model"
+            type="com.mobile.mvpwithdatabinding.model.Contact" />
+
+            <variable
+                name="homeActions"
+                type="com.mobile.mvpwithdatabinding.home.views.interfaces.HomeContract.ViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> homeActions.cardClicked(model)}"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@{model.imageUrl}"
+                />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_profile"
+                android:background="@color/colorAccent"
+                android:text="@{String.valueOf(model.name).toUpperCase()}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_username"
+                android:drawableStart="@android:drawable/ic_dialog_email"
+                android:gravity="center_vertical"
+                android:text="@{model.email}"
+                android:textSize="12dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_email"
+                android:drawableStart="@android:drawable/ic_menu_call"
+                android:gravity="center_vertical"
+                android:text="@{model.mobile}"
+                android:textSize="12dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_phone"
+                android:layout_alignParentStart="true"
+                >
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{ () -> homeActions.logout()}"
+                    android:text="@string/btn_logout"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{ () -> homeActions.editUser(model)}"
+                    android:text="@string/btn_edit"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

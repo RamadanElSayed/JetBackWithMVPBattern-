@@ -1,0 +1,96 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="presenter"
+            type="com.mobile.mvpwithdatabinding.register.presenters.RegisterPresenter"
+            />
+        <import type="android.view.View"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/imageViewSelectPic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{ () -> presenter.filePicker()}"
+            android:src="@android:drawable/ic_menu_camera"
+            android:visibility="@{ presenter.isImageSelected.get()?View.GONE:View.VISIBLE }"
+            />
+
+        <ImageView
+            android:id="@+id/imageViewPicture"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/imageViewSelectPic"
+            android:onClick="@{ () -> presenter.filePicker()}"
+            android:src="@{presenter.imageUrl}"
+            android:visibility="@{ presenter.isImageSelected.get()?View.VISIBLE:View.GONE }"
+            />
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageViewPicture"
+            android:layout_weight="1"
+            android:hint="@string/hint_name"
+            android:inputType="textPersonName"
+            android:text="@={presenter.username}"
+            />
+        <EditText
+            android:id="@+id/editTextMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextName"
+            android:layout_centerVertical="true"
+            android:hint="@string/hint_mobile"
+            android:inputType="phone"
+            android:text="@={presenter.mobile}"
+            />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextMobile"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:text="@={presenter.email}"
+            />
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextEmail"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:text="@={presenter.password}"
+            />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:onClick="@{ () -> presenter.doLogin()}"
+            android:text="@{ presenter.isNewOrEdit.get()?@string/btn_save:@string/btn_login}"
+            />
+
+<!--        <Button-->
+<!--        android:id="@+id/btn_save"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:onClick="@{ () -> presenter.save()}"-->
+<!--        android:text="@string/btn_login"-->
+<!--        />-->
+    </RelativeLayout>
+</layout>

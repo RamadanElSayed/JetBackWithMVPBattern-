@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.mobile.mvpwithdatabinding.home.presenters.HomePresenter"
+            />
+        <variable
+            name="adapter"
+            type="com.mobile.mvpwithdatabinding.home.views.adapters.HomeAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@{presenter.imageUrl}"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:id="@+id/view_id"
+            android:layout_below="@+id/iv_profile"
+            android:background="@color/colorPrimary"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_id"
+            android:layout_marginTop="10dp"
+            android:adapter="@{adapter}"
+           />
+
+
+    </RelativeLayout>
+</layout>

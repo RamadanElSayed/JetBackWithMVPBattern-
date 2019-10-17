@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MVPWithDataBinding</string>
+    <string name="hint_email">Enter Email</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="text_register">Register</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_save">Save</string>
+    <string name="err_email">Error Email</string>
+    <string name="err_password">Error password</string>
+    <string name="err_login">Error login</string>
+    <string name="err_username">Error user name</string>
+    <string name="err_phone">Error phone</string>
+    <string name="err_user_exist">Error user exist</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_mobile">Mobile</string>
+    <string name="err_image">error Image</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_logout">LogOut</string>
+</resources>
