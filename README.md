@@ -10,5 +10,4 @@
   <li>Implementation of recycler adapter, action onclick, login and registration with dataBinding </li>
   <li>Notifications with time </li>
 </ol>
-<h2>IMPORTANT SETUP INFORMATION</h2>
 
