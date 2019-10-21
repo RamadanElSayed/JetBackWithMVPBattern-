@@ -13,6 +13,7 @@ import com.mobile.mvpwithdatabinding.home.views.activities.HomeActivity;
 import com.mobile.mvpwithdatabinding.R;
 import com.mobile.mvpwithdatabinding.login.views.interfaces.LoginContract;
 import com.mobile.mvpwithdatabinding.login.presenters.LoginPresenter;
+import com.mobile.mvpwithdatabinding.notifications.NotificationsActivity;
 import com.mobile.mvpwithdatabinding.register.views.activities.RegisterActivity;
 import com.mobile.mvpwithdatabinding.databinding.ActivityLoginBinding;
 import com.mobile.mvpwithdatabinding.model.Contact;
@@ -28,6 +29,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         mPresenter = new LoginPresenter(this);
         mBinding.setPresenter(mPresenter);
+
+
+
+
+        startActivity(
+                new Intent(this, NotificationsActivity.class));
+        finish();
+
 
     }
 

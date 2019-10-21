@@ -21,14 +21,12 @@ public interface ToDoDao {
     @Query("SELECT * FROM Contact ")
     Flowable<List<Contact>> getAllContacts();
 
-
     @Query("DELETE FROM Contact WHERE mId= :id")
     void deleteContactId(int id);
 
-
     @Update
     void update(Contact contact);
+ }
 
 
-}
 
